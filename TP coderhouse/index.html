@@ -6,7 +6,6 @@
   <title>Materos</title>
   <link rel="stylesheet" href="css/estilos.css" />
 </head>
-<script src="js/productos.js"></script>
 <body>
   <header>
     <h1>Mi E-commerce</h1>
@@ -18,11 +17,20 @@
     <a href="yerba.html">Yerbas</a>
     <a href="bombillas.html">Bombillas</a>
     <a href="carrito.html">Carrito</a>
+    <a href="agregar.html">Agregar Producto</a>
   </nav>
 
   <div class="container">
-    <h2>Bienvenido a nuestro E-commerce</h2>
+    <h2>Bienvenido a nuestro Materos</h2>
     <p>Descubre los mejores productos al mejor precio.</p>
   </div>
+  <div class="reseñas">
+  <h2>Dejá tu reseña</h2>
+  <textarea id="inputReseña" placeholder="Escribí tu reseña (máx. 500 caracteres)" maxlength="500"></textarea>
+  <br />
+  <button id="btnEnviarReseña">Enviar reseña</button>
+  </div>
+  <script src="js/productos.js"></script>
+  <script src="js/reseñas.js"></script>
 </body>
 </html>

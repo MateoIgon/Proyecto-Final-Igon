@@ -72,6 +72,21 @@
     background-color: #45a049;
     }
 
+    .btn-eliminar {
+    background-color: #b42f07;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin-top: 0.5rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    }
+
+    .btn-eliminar:hover {
+    background-color: #941403;
+    }
+
     #listaCarrito {
     list-style: none;
     padding: 0;
@@ -96,3 +111,78 @@
     .btn-finalizar:hover {
     background-color: #45a049;
     }
+
+    .reseñas {
+    margin: 30px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    border-radius: 8px;
+    }
+
+    #inputReseña {
+      width: 100%;
+      height: 100px;
+      padding: 10px;
+      font-size: 14px;
+      border-radius: 5px;
+      border: 1px solid #aaa;
+      resize: vertical;
+    }
+
+    #btnEnviarReseña {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #048625;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #btnEnviarReseña:hover {
+      background-color: #017501;
+    }
+
+    .form-container {
+  background-color: #f3f3f3;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin: 30px;
+  border-radius: 8px;
+}
+
+.form-container h2 {
+  margin-bottom: 15px;
+}
+
+.form-container div {
+  margin-bottom: 15px;
+}
+
+.form-container label {
+  display: inline-block;
+  width: 100px;
+  font-weight: bold;
+}
+
+.form-container input,
+.form-container select {
+  width: 300px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.btn-verde {
+  background-color: green;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-verde:hover {
+  background-color: #006400;
+}

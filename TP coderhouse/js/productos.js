@@ -1,6 +1,6 @@
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-const productos = [
+const productosBase = [
     //Mates
     {
       nombre: "Mate Porongo",
@@ -90,6 +90,9 @@ const productos = [
     }
   ];
 
+  let productosAgregados = JSON.parse(localStorage.getItem("productos")) || [];
+  let productos = [...productosBase, ...productosAgregados];
+
 function mostrarProductos(categoria) {
   const container = document.querySelector(".container");
   container.innerHTML = "";
@@ -104,6 +107,7 @@ function mostrarProductos(categoria) {
       <h2>${producto.nombre}</h2>
       <p>Precio: $${producto.precio}</p>
       <button class="btn-agregar">Agregar al carrito</button>
+       ${productosAgregados.some(p => p.nombre === producto.nombre) ? '<button class="btn-eliminar">Eliminar</button>' : ''}
     `;
 
     const botonAgregar = div.querySelector(".btn-agregar");
@@ -118,6 +122,22 @@ function mostrarProductos(categoria) {
       console.log("Carrito actual:", carrito);
       alert(`${producto.nombre} agregado al carrito.`);
     });
+
+    // Botón eliminar (solo si el producto es agregado)
+    if (productosAgregados.some(p => p.nombre === producto.nombre)) {
+      const botonEliminar = div.querySelector(".btn-eliminar");
+      botonEliminar.addEventListener("click", () => {
+        // Eliminar producto del array productosAgregados
+        productosAgregados = productosAgregados.filter(p => p.nombre !== producto.nombre);
+        // Actualizar localStorage
+        localStorage.setItem("productos", JSON.stringify(productosAgregados));
+        // Actualizar la lista global
+        productos = [...productosBase, ...productosAgregados];
+        // Volver a mostrar productos
+        mostrarProductos(categoria);
+        alert("Producto eliminado con éxito");
+      });
+    }
 
     container.appendChild(div);
   });
