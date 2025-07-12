@@ -15,12 +15,15 @@ function mostrarCarrito() {
 
     let total = 0;
 
-    carrito.forEach((item) => {
+    carrito.forEach((item, index) => {
       const li = document.createElement("li");
       li.classList.add("item-carrito");
-      li.textContent = `${item.nombre} - Cantidad: ${item.cantidad} - Precio: $${item.precio}`;
-      listaCarrito.appendChild(li);
+      li.innerHTML = `
+        ${item.nombre} - Cantidad: ${item.cantidad} - Precio: $${item.precio}
+        <button class="btn-eliminar-item" data-index="${index}">❌</button>
+      `;
 
+      listaCarrito.appendChild(li);
       total += item.precio * item.cantidad;
     });
 
@@ -28,6 +31,16 @@ function mostrarCarrito() {
     totalLi.classList.add("total-carrito");
     totalLi.textContent = `Total: $${total}`;
     listaCarrito.appendChild(totalLi);
+
+    const botonesEliminar = document.querySelectorAll(".btn-eliminar-item");
+    botonesEliminar.forEach(boton => {
+      boton.addEventListener("click", () => {
+        const index = parseInt(boton.dataset.index);
+        carrito.splice(index, 1);
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+        mostrarCarrito();
+      });
+    });
 
   } else {
     carritoContainer.style.display = "none";
@@ -44,8 +57,17 @@ function configurarBotonFinalizar() {
     carrito = [];
     localStorage.removeItem("carrito");
     if (carritoContainer) carritoContainer.style.display = "none";
-    alert("¡Gracias por tu compra!");
-    window.location.href = "index.html";
+    Swal.fire({
+      text: "¡Gracias por tu compra!",
+      icon: "success",
+      timer: 2000,
+      showConfirmButton: false,
+      position: "center"
+    });
+
+    setTimeout(() => {
+      window.location.href = "index.html";
+    }, 2000);
   });
 }
 

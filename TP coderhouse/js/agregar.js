@@ -36,6 +36,12 @@ form.addEventListener("submit", (e) => {
   productos.push(nuevoProducto);
   localStorage.setItem("productos", JSON.stringify(productos));
 
-  alert("¡Producto agregado con éxito!");
+    Swal.fire({
+    text: "¡Gracias por contribuir!",
+    icon: "success",
+    timer: 2000,
+    showConfirmButton: false,
+    position: "center"
+  });
   form.reset();
 });

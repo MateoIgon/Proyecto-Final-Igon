@@ -14,16 +14,46 @@ btnEnviar.addEventListener("click", () => {
   const texto = inputReseña.value.trim();
 
   if (texto.length === 0) {
-    alert("La reseña no puede estar vacía.");
+    Toastify({
+      text: "La reseña no puede estar vacía",
+      duration: 3000,
+      gravity: "top", // posición vertical
+      position: "center", // posición horizontal
+      backgroundColor: "linear-gradient(to right,rgb(245, 53, 53),rgb(252, 16, 16))",
+      stopOnFocus: true,
+      style: {
+      color: "black", // color del texto
+    },
+    }).showToast();
     return;
   }
 
   if (texto.length > 500) {
-    alert("La reseña no puede tener más de 500 caracteres.");
+    Toastify({
+      text: "La reseña no puede tener más de 500 caracteres",
+      duration: 3000,
+      gravity: "top", // posición vertical
+      position: "center", // posición horizontal
+      backgroundColor: "linear-gradient(to right,rgb(242, 245, 244),rgb(222, 241, 188))",
+      stopOnFocus: true,
+      style: {
+      color: "black", // color del texto
+    },
+    }).showToast();
     return;
   }
 
-  alert("¡Gracias por tu reseña!");
+    Toastify({
+    text: "Reseña enviada ✅",
+    duration: 3000,
+    gravity: "top", // posición vertical
+    position: "right", // posición horizontal
+    backgroundColor: "linear-gradient(to right,rgb(242, 245, 244),rgb(222, 241, 188))",
+    stopOnFocus: true,
+    style: {
+    color: "black", // color del texto
+  },
+  }).showToast();
 
   // Borrar la reseña y el localStorage
   inputReseña.value = "";

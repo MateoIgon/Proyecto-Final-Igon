@@ -186,3 +186,19 @@
 .btn-verde:hover {
   background-color: #006400;
 }
+
+.btn-eliminar-item {
+  background-color: #ec0f0f;
+  border: none;
+  color: white;
+  padding: 4px 8px;
+  margin-left: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.btn-eliminar-item:hover {
+  background-color: #c92a2a;
+}

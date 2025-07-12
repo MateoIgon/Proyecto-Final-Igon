@@ -120,7 +120,16 @@ function mostrarProductos(categoria) {
       }
       localStorage.setItem("carrito", JSON.stringify(carrito)); 
       console.log("Carrito actual:", carrito);
-      alert(`${producto.nombre} agregado al carrito.`);
+      Toastify({
+        text: `${producto.nombre} agregado al carrito.`,
+        duration: 3000,
+        gravity: "top", // superior
+        position: "center", // centro horizontal
+        backgroundColor: "linear-gradient(to right,rgb(180, 245, 185),rgb(181, 248, 65))",
+        style: {
+          color: "black"
+        }
+      }).showToast();
     });
 
     // Botón eliminar (solo si el producto es agregado)
@@ -135,7 +144,16 @@ function mostrarProductos(categoria) {
         productos = [...productosBase, ...productosAgregados];
         // Volver a mostrar productos
         mostrarProductos(categoria);
-        alert("Producto eliminado con éxito");
+        Toastify({
+          text: "Producto eliminado con éxito",
+          duration: 3000,
+          gravity: "top",
+          position: "center",
+          backgroundColor: "linear-gradient(to right, #ff5f6d, #ffc371)",
+          style: {
+            color: "black"
+          }
+        }).showToast();
       });
     }
 
